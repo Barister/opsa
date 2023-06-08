@@ -1,0 +1,686 @@
+//<МИКСИНЫ>===============================================================================================
+@import "mixins.scss";
+//</МИКСИНЫ>===============================================================================================
+
+//<ШРИФТЫ>===============================================================================================
+
+//<Подключаем шрифты>=======================================================================================
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;600;700&family=Work+Sans:wght@400;600;700&display=swap');
+//</Подключаем шрифты>=======================================================================================
+
+//<Иконочные шрифты>==========================================================================================
+
+//</Иконочные шрифты>==========================================================================================
+
+//<Шрифт по умолчанию>==========================================================================================
+$fontfamily: "Exo 2", "Arial", sans-serif;
+//</Шрифт по умолчанию>==========================================================================================
+
+//</ШРИФТЫ>=======================================================================================================
+
+//<ПЕРЕМЕННЫЕ>===========================================================================================================
+$minwidth: 320px;
+$mw: 1170;
+$md1: $mw + 12;
+$md2: 991.98;
+$md3: 767.98;
+$md4: 479.98;
+//</ПЕРЕМЕННЫЕ>===========================================================================================================
+
+//<ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>===============================================================================================
+@import "null.scss";
+body {
+	color: #000;
+	font-size: 16px;
+	&.lock {
+		overflow: hidden;
+	}
+}
+//</ОБНУЛЕНИЕ, ОБЩИЕ ПАРАМЕТРЫ>===============================================================================================
+
+//<ОБОЛОЧКА>===========================================================================================================
+.wrapper {
+	width: 100%;
+	min-height: 100%;
+	overflow: hidden;
+	@include flexbox();
+	flex-direction: column;
+	&.loaded {
+	}
+}
+//</ОБОЛОЧКА>===========================================================================================================
+
+//<ОСНОВНАЯ СЕТКА>===========================================================================================================
+.container {
+	max-width: $mw + px;
+	margin: 0 auto;
+	width: 100%;
+	@media (max-width: $md1+px) {
+		max-width: 970px;
+		
+	}
+	@media (max-width: $md2+px) {
+		max-width: 750px;
+	}
+	@media (max-width: $md3+px) {
+		max-width: none;
+		padding: 0 20px;
+	}
+}
+//</ОСНОВНАЯ СЕТКА>===========================================================================================================
+
+//<ПОДКЛЮЧЕНИЕ ФАЙЛОВ UI СТИЛЕЙ, ФОРМ И ГОТОВЫХ КЛАССОВ>====================================================================================================
+@import "forms.scss";
+@import "ui.scss";
+//</ПОДКЛЮЧЕНИЕ ФАЙЛОВ UI СТИЛЕЙ, ФОРМ И ГОТОВЫХ КЛАССОВ>====================================================================================================
+
+//<ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================
+//@import "../../js/fancybox/jquery.fancybox.scss";
+//@import "datepicker.scss";
+//@import "fontawesome.scss";
+//@import "popover.min.scss";
+//@import "baguetteBox.scss";
+//@import "pagging.scss";
+//@import "icons.scss";
+@import "popup.scss";
+@import "header.scss";
+@import "footer.scss";
+@import "home.scss";
+//</ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================
+
+//<ОСНОВНОЙ БЛОК>====================================================================================================
+.mainblock {
+	flex: 1 0 100%;
+	position: relative;
+	@include flexbox();
+	justify-content: center;
+	text-align: center;
+	padding: 50px 0px;
+	margin-bottom: 60px;
+	// .mainblock__content
+	&__content {
+		position: relative;
+		z-index: 1;
+		color: #ffffff;
+		font-size: 16px;
+		flex: 1 1 auto;
+		.container{
+			height: 100%;
+			@include flexbox();
+			flex-direction: column;
+			justify-content: space-between;
+			align-items: center;
+		}
+	@media (max-height: 500px) {
+		
+	}
+
+	}
+	// .mainblock__logo
+	&__logo {
+		position: relative;
+		visibility: hidden;
+		z-index: 0;
+		margin: 0px 0px 30px 0px;
+		@media (min-height: 800px) {
+			margin: 10% 0px 30px 0px;
+		}
+		@media (max-height: 500px){
+			display: none;
+		}
+	}
+	&__logotitle{
+		color: #ffffff;
+		letter-spacing: 0.25rem;
+    	font-weight: 600;
+   	 	font-size: 2.125rem;
+    	line-height: 1;
+
+	}
+	// .mainblock__sublogo
+	&__logosubtitle {
+		color: #ffffff;
+		font-size: 16px;
+	}
+	// .mainblock__text
+	&__text {
+		color: #ffffff;
+		position: relative;
+		@media (max-height: 500px){
+			margin-top: 50px;
+		}
+	}
+	// .mainblock__subtitle
+	&__subtitle {
+		color: #ffffff;
+		font-size: 1.500rem;
+		line-height: 1.1;
+    	letter-spacing: 0.125rem;
+    	font-weight: 600;
+    	margin-bottom: 1.25rem;
+    	text-shadow: 0px 3px 3px rgb(0 0 0 / 30%);
+    	@media (max-width: $md3+px){
+			font-size: 1rem;
+		}
+	}
+	// .mainblock__title
+	&__title {
+		font-size: 5rem;
+		line-height: 1.1;
+		font-weight: 700;
+		text-shadow: 0px 3px 3px rgb(0 0 0 / 30%);
+		margin-bottom: 20px;
+		@media (max-width: $md2+px) , (max-height: 550px){
+			font-size: 4rem;
+		}
+		@media (max-height: 550px){
+			line-height: 1;
+		}
+		@media (max-width: $md3+px){
+			font-size: 2.5rem;
+		}
+		@media (max-width: 400px){
+			font-size: 2rem;
+		}
+
+
+
+	}
+	// .mainblock__footer
+	&__footer {
+		@include flexboxinline();
+		flex-direction: column;
+		position: relative;
+	}
+	// .mainblock__btn
+	&__btn {
+		margin-bottom: 60px;
+		@media (max-height: 550px){
+			margin-bottom: 10px;
+		}
+	}
+		// .mainblock__image
+	&__image {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+	}
+	&__arrow {
+	width: 66px;
+	height: 66px;
+	background-color: #2a83e8;
+	color: #ffffff;
+	position: relative;
+    bottom: -33px;
+    border: 2px solid #ffffff;
+   	margin: 0px auto;
+   	border-radius: 50%;
+   	@include flexbox();
+   	align-items: center;
+   	padding: 0px 22px;
+   	animation: double-arrow 1s infinite linear;
+	}
+
+	.double-arrow{
+		
+	}
+}
+
+@keyframes double-arrow {
+ 		0% {
+  			top: 0;
+  		}
+  		50% {
+   			top: 5px;
+  		}
+  		100% {
+   			top: 0;
+  		}
+	}
+
+
+.content {
+	margin-top: 0px;
+
+}
+
+.about {
+	padding-bottom: 60px;
+	// .about__row
+	&__row {
+		@include flexbox();
+		@media (max-width: 550px){
+			display: block;
+		}
+	}
+	// .about__info
+	&__info {
+		flex: 0 0 50%;
+		color: #000;
+		padding-right: 30px;
+		@media (max-width: 650px){
+			padding-right: 15px;
+		}
+		
+	}
+	// .about__title
+	&__title {
+		font-size: 2.625rem;
+		font-weight: 700;
+		padding-bottom: 20px;
+		& span{
+			color: #2a83e8;
+
+		}
+
+	}
+	// .about__text
+	&__text {
+		font-size: 16px;
+		line-height: 1.2;
+		& p{
+			padding-bottom: 15px;
+		}
+		&_left-bold{
+			font-size: 18px;
+			font-weight: 600;
+			line-height: 1.4;
+			margin: 10px 0px;
+			padding: 0px 20px;
+			border-left: 5px solid #eee;
+			@media (max-width: 650px){
+				line-height: 1.2;
+			}
+		}
+		&_right-normal {
+			text-align: justify;
+		}
+	}
+	// .about__images
+	&__images {
+		flex: 0 1 50%;
+		@include flexbox();
+		flex-wrap: wrap;
+		overflow: hidden;
+		align-self: center;
+		padding-top: 5%;
+		@media (max-width: $md2+px) {
+			display: block;
+
+		}
+
+	}
+	// .about__item
+	&__item {
+		flex: 0 0 50%;
+		overflow: hidden;
+		padding: 10px;
+		@media (max-width: $md2+px) {
+			
+		}
+		@media (max-width: 600px){
+			;
+		}
+		& img {
+			object-fit: cover;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			
+		}
+	}
+}
+
+.img1{
+	text-align: right;
+	padding-top: 15%;
+	padding-left: 5%;
+	width: 75%;
+	@media (max-width: $md2+px) {
+			float: left;
+			width: 90%;
+			padding: 0;
+	}
+}
+
+.img2{
+	text-align: left;
+	@media (max-width: $md2+px) {
+			float: right;
+			width: 90%;
+			text-align: auto;
+	}
+}
+
+.img3{
+	text-align: right;
+	margin-bottom: 15%;
+	width: 50%;
+	@media (max-width: $md2+px) {
+			float: left;
+			width: 90%;
+			margin: 0;
+	}
+}
+
+.img4{
+	text-align: left;
+	margin-bottom: 25%;
+	width: 75%;
+	padding-right: 10%;
+	@media (max-width: $md2+px) {
+			float: right;
+			width: 90%;
+			margin: 0;
+			padding: 0;
+	}
+}
+
+.houses {
+	padding-bottom: 60px;
+	margin-bottom: 60px;
+	&__title {
+		text-align: center;
+		font-size: 2.625rem;
+		font-weight: 700;
+		padding-bottom: 40px;
+	}
+	&__row {
+		@include flexbox();
+		gap: 30px;
+		@media (max-width: 650px){
+			display: block;
+		}
+	}
+
+	&__images {
+		flex: 0 1 50%;
+		width: 100%;
+		height: 600px;
+		text-align: center;
+		align-self: center;
+		@media (max-width: $md2+px) {
+			display: flex;
+			flex-direction: column;
+			gap: 20%;
+			align-self: auto;
+			//height: 100%;	
+		}
+		@media (max-width: 650px) {
+			display: block;
+			height: 100%;
+		}
+  		 & img {
+			object-fit: contain;
+			max-width: 100%;
+			max-height: 100%;
+			@media (max-width: 650px) {
+				margin: 0px 0px 20px 0px;
+				padding: 0px 20px;
+				
+			}
+		}
+	}
+
+	&__image1 {
+		display: none;
+		@media (max-width: $md2+px) {
+			display: block;
+			padding: 20px 0px 0px 0px;
+		}
+		@media (max-width: $md3+px) {
+			display: block;
+			padding: 40px 0px 0px 0px;
+		}
+		@media (max-width: 650px) {
+			display: block;
+			padding: 40px 0px 0px 0px;
+			width: 100%;
+		}
+	}
+
+	&__image2 {
+		
+		@media (max-width: 650px) {
+			width: 60vw;
+		}
+	}
+
+	&__info {
+		flex: 1 1 50%;
+		color: #000;
+		//padding-right: 30px;
+		@media (max-width: 650px){
+			//padding-right: 15px;
+		}
+	}
+
+	&__text {
+		font-size: 16px;
+		line-height: 1.2;
+		text-align: justify;
+		&  p{
+			font-size: 18px;
+			font-weight: 600;
+			line-height: 1.4;
+			margin: 10px 0px;
+			padding: 0px 20px;
+		}
+		&_left-bold {
+			border-left: 5px solid #eee;
+		}
+	}
+
+	&__complects {
+		margin: 0px 0px 20px 0px;
+		& p {
+			font-size: 18px;
+			font-weight: 600;
+			line-height: 1.4;
+			@media (max-width: 650px){
+				padding: 0;
+			}	
+			
+		}
+		
+		& li {
+			margin: 0px 0px 10px 0px;
+			padding: 0px 0px 0px 20px;
+			@media (max-width: 650px){
+				padding: 0;
+			}	
+		}
+		& li::before {
+			content: "";
+			height: 9px;
+			width: 9px;
+			border-radius: 50%;
+			background-color: #eee; /* or whatever color you prefer */
+			margin: 0px 20px 0px 0px;
+			display: inline-block;
+		 }
+	}
+}
+
+
+
+.services {
+}
+
+.galleri {
+	margin-bottom: 60px;
+	&__grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  		place-items: center;
+  		gap: 1rem;
+	}
+	&__item {
+		width: 100%;
+		height: 100%;
+		max-height: 300px;
+		object-fit: cover;
+	}
+}
+	
+
+.price {
+	margin-bottom: 60px;
+	&__title {
+		text-align: center;
+		font-size: 2.625rem;
+		font-weight: 700;
+		padding-bottom: 40px;
+	}
+
+
+	&__subtitle {
+		text-align: center;
+		margin: 0px 0px 30px 0px;
+		font-size: 18px;
+		line-height: 1.2;
+	}
+
+	&__row {
+		@include flexbox();
+		gap: 50px;
+		margin: 0px 0px 30px 0px;
+		justify-content: center;
+		@media (max-width: $md3+px) {
+			gap: 20px;
+		}
+	}
+
+	&__months ,
+	&__workdays ,
+	&__weekends {
+		border: 1px solid lightgray;
+		//border-radius: 5px;
+		font-size: 18px;
+		line-height: 1.2;
+		padding: 40px 10px;
+		width: 250px;
+		height: 300px;
+		background-color: #eee;
+		text-align: center;
+		display: flex;
+		justify-content: space-around;
+		flex-direction: column;
+		& p {
+			margin-bottom: 10px;
+		}
+	}
+
+
+	&__months {
+	}
+
+	&__workdays {
+	}
+
+	&__weekends {
+	}
+
+	&__details {
+		text-align: center;
+		font-size: 18px;
+		line-height: 1.2;
+	}
+}
+
+
+.todo {
+
+	&__title {
+		text-align: center;
+		font-size: 2.625rem;
+		font-weight: 700;
+		padding-bottom: 40px;
+	}
+
+	&__subtitle {
+		text-align: center;
+		margin: 0px 0px 30px 0px;
+		font-size: 18px;
+		line-height: 1.2;
+	}
+
+	&__row {
+		// @media (max-width: $md3+px) {
+		// 	padding: 0 150px;
+		// }
+	}
+
+	&__list {
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  		place-items: center;
+  		gap: 1rem;
+		@media (max-width: $md3+px) {
+			//padding: 0 150px;
+			grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+		}
+		@media (min-width: 550px) and (max-width: 650px) {
+			grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+			padding: 0 50px;
+			
+		}   
+	}
+
+	&__item {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		width: 100%;
+		height: 100%;
+		//max-height: 300px;
+	}
+}
+.container {
+}
+.item {
+	&__image {
+		flex: 80%;
+		
+	}
+	&__image img{
+		height: 100%;
+  		object-fit: cover;
+  		width: 100%;
+		height: 275px;
+	}
+
+	&__details {
+		flex: 20%;
+		font-size: 1rem;
+		display: flex;
+  		align-items: center;
+  		justify-content: center;
+  		color: #2c5d63; 
+  		font-weight: 400;
+		//text-align: center;
+	}
+	&__details h3{
+		text-align: justify;
+		padding: 10px 10px 10px 10px;
+	}
+}
+
+.sightseeings {
+}
+.feedback {
+}
+.owner {
+}
+.toreach {
+}
+.enquiry {
+}
+
+
+//====================================================================================================
+
+//</ОСНОВНОЙ БЛОК>====================================================================================================
