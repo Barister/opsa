@@ -517,6 +517,10 @@ body {
 		grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   		place-items: center;
   		gap: 1rem;
+		  @media (min-width: 600px) and (max-width: $md3+px) {
+			padding: 0 75px;
+			
+		}   
 	}
 	&__item {
 		width: 100%;
@@ -593,7 +597,7 @@ body {
 
 
 .todo {
-
+	margin-bottom: 60px;
 	&__title {
 		text-align: center;
 		font-size: 2.625rem;
@@ -670,7 +674,50 @@ body {
 }
 
 .sightseeings {
+	margin-bottom: 60px;
+	&__title {
+		text-align: center;
+		font-size: 2.625rem;
+		font-weight: 700;
+		padding-bottom: 40px;
+	}
+
+	&__subtitle {
+		text-align: center;
+		margin: 0px 0px 30px 0px;
+		font-size: 18px;
+		line-height: 1.2;
+	}
+
+	&__row {
+	}
+
+	&__list {
+	}
+
+	&__item {
+	}
+
+	&__details {
+	}
+
+	&__image {
+	}
+
+	&__map {
+	}
 }
+.container {
+}
+.details {
+
+	&__title {
+	}
+
+	&__description {
+	}
+}
+
 .feedback {
 }
 .owner {

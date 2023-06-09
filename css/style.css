@@ -1169,6 +1169,9 @@ body.ie .ibg img {
 		color: #fff;
 	}
 }
+.header__btn a {
+	color: #fff;
+}
 
 .header__logotitle {
 	color: #ffffff;
@@ -1211,6 +1214,87 @@ body.ie .ibg img {
 	.mobi {
 		display: block;
 	}
+}
+
+.footer__row {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	height: 350px;
+	width: 100%;
+}
+@media (max-width: 991.98px) {
+	.footer__row {
+		height: 300px;
+	}
+}
+@media (max-width: 650px) {
+	.footer__row {
+		height: 250px;
+	}
+}
+.footer__left {
+	background: #2a83e8;
+	width: 26.5%;
+	height: 100%;
+	color: #fff;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center;
+	gap: 10px;
+	-webkit-box-align: end;
+	    -ms-flex-align: end;
+	        align-items: flex-end;
+	padding: 30px;
+}
+@media (max-width: 650px) {
+	.footer__left {
+		width: 35%;
+	}
+}
+.footer__title {
+	font-size: 3vw;
+	line-height: 1.2;
+	letter-spacing: 0.05rem;
+	margin: 0;
+	word-wrap: break-word;
+	font-weight: 700;
+}
+.footer__title a {
+	color: #fff;
+}
+.footer__subtitle {
+	font-size: 1rem;
+	letter-spacing: 0.1rem;
+	word-wrap: break-word;
+	margin: 0px 0px 20px 0px;
+	text-align: right;
+}
+@media (max-width: 650px) {
+	.footer__subtitle {
+		font-size: 0.8rem;
+	}
+}
+.footer__copyright {
+	font-size: 1rem;
+	letter-spacing: 0.1rem;
+}
+@media (max-width: 650px) {
+	.footer__copyright {
+		font-size: 0.8rem;
+	}
+}
+.footer__right {
+	width: 73.5%;
+	height: 100%;
+	background: #393939;
 }
 
 .mainblock {
@@ -1695,8 +1779,7 @@ body.ie .ibg img {
 	height: 9px;
 	width: 9px;
 	border-radius: 50%;
-	background-color: #eee;
-	/* or whatever color you prefer */
+	background-color: #eee; /* or whatever color you prefer */
 	margin: 0px 20px 0px 0px;
 	display: inline-block;
 }
@@ -1710,6 +1793,11 @@ body.ie .ibg img {
 	grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
 	place-items: center;
 	gap: 1rem;
+}
+@media (min-width: 600px) and (max-width: 767.98px) {
+	.galleri__grid {
+		padding: 0 75px;
+	}
 }
 .galleri__item {
 	width: 100%;
@@ -1778,6 +1866,9 @@ body.ie .ibg img {
 	line-height: 1.2;
 }
 
+.todo {
+	margin-bottom: 60px;
+}
 .todo__title {
 	text-align: center;
 	font-size: 2.625rem;
@@ -1855,4 +1946,20 @@ body.ie .ibg img {
 .item__details h3 {
 	text-align: justify;
 	padding: 10px 10px 10px 10px;
+}
+
+.sightseeings {
+	margin-bottom: 60px;
+}
+.sightseeings__title {
+	text-align: center;
+	font-size: 2.625rem;
+	font-weight: 700;
+	padding-bottom: 40px;
+}
+.sightseeings__subtitle {
+	text-align: center;
+	margin: 0px 0px 30px 0px;
+	font-size: 18px;
+	line-height: 1.2;
 }
