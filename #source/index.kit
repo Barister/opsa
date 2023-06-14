@@ -707,44 +707,31 @@
 			</section>
 			<section class="owner">
 			</section>
-			<section class="toreach" id="to reach">
-				<div class="container">
-					<div class="toreach__title">
-						<h2>Как добраться</h2>
-					</div>
-					<div class="toreach__subtitle">
-						<p></p>
-					</div>
-					<div class="toreach__row">
 
-						train-tram
-						car-side
-
-					</div>
-				</div>
-			</section>
 			<section class="enquiry" id="enquiry">
 				<div class="enquiry__overlay"></div>
 				<div class="container">
 					<div class="enquiry__row">
-						<form action="#" class="enquiry__form form" method="POST">
+						<form action="send.php" class="enquiry__form form" method="POST">
 							<p class="enquiry__subtitle">Отправьте нам сообщение</p>
 							<h2 class="enquiry__title">Сделать запрос</h2>
 							<fieldset>
-								<label for="">Ваше имя (обязательно)
-									<input type="text">
+								<label for="name">Ваше имя (обязательно)
+									<input id="name" type="text" name="name" required>
 								</label>
-								<label for="">Телефон
-									<input type="tel">
+								<label for="phone">Телефон (обязательно)
+									<input id="phone" type="tel" name="phone" pattern="" [78][0-9]{9}"" minlength="10"
+										placeholder="+7 (xxx) xxx-xxxx" required>
 								</label>
-								<label for="">E-mail (обязательно)
-									<input type="email">
+								<label for="email">E-mail
+									<input id="email" type="email" name="email">
 								</label>
-								<label for="">Сообщение
-									<textarea cols="40" rows="10"></textarea>
+								<label for="text">Сообщение
+									<textarea id="text" cols="40" rows="10"
+										placeholder="Например, есть ли свободный дом на ближайшие выходные?" required></textarea>
 								</label>
 							</fieldset>
-							<input class="btn__main btn" type="submit">
+							<input class="btn__main btn" type="submit" value="Отправить">
 						</form>
 						<div class="enquiry__contacts contacts">
 							<h2 class="contacts__title">Наши контакты</h2>
@@ -779,6 +766,51 @@
 					</div>
 				</div>
 			</section>
+			<section class="toreach" id="to reach">
+				<div class="container">
+					<div class="toreach__title">
+						<h2>Как добраться</h2>
+					</div>
+					<div class="toreach__subtitle">
+						<p>Санкт-Петербург - Опса.Карелия</p>
+					</div>
+					<div class="toreach__row">
+						<div class="toreach__item">
+							<div class="toreach__image"><img src="img/toreach/train res.png" alt=""></div>
+							<div class="toreach__text">
+								<h3>На поезде</h3>
+								<p>Теперь в связи с запуском пригородного поезда Лодейное поле - Сортавала к нам приезжать из
+									Санкт-Петербурга стало очень удобно. В 2 км от комплекса, в пешей доступности, расположена
+									остановка электрички ст.Нурмойла.</p>
+								<p>Поезд «Ласточка» стыкуется в Лодейном поле с пригородным поездом «Орлан» с разницей в 10 мин.
+									Путь из Санкт-Петербурга до п. Нурмойла, где находятся наши коттеджи займёт 4 часа.</p>
+								<p>Также удобно ездить на этом поезде до горного парка Рускеала.</p>
+							</div>
+						</div>
+						<div class="toreach__item">
+							<div class="toreach__image"><img src="img/toreach/car.png" alt=""></div>
+							<div class="toreach__text">
+								<h3>На машине</h3>
+								<p>На своем автомобиле путь из Санкт-Петербурга по Мурманскому шоссе, автодороге "Кола", обычно
+									занимает в районе 4 часов. Расстояние от КАД до комплекса - 320 км.</p>
+
+							</div>
+						</div>
+						<div class="toreach__item">
+							<div class="toreach__image"><img src="img/toreach/bus.png" alt="">
+							</div>
+							<div class="toreach__text">
+								<h3>На автобусе</h3>
+								<p>Ежедневно с автовокзала на Обводном канале в Санкт-Петербурге в сторону Питкяранты
+									отправляется автобус по маршруту № 963. Через 5 часов 20 минут автобус проезжает п.
+									Ильинский, где и находится наш гостевой комплекс.</p>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<section class="faq"></section>
 
 		</div>
 		<!-- @import "footer.kit" -->
