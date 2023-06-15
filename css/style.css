@@ -2315,6 +2315,11 @@ body.ie .ibg img {
 	font-weight: 700;
 	padding-bottom: 40px;
 }
+@media (max-width: 550px) {
+	.toreach__title {
+		font-size: 1.8rem;
+	}
+}
 .toreach__subtitle {
 	text-align: center;
 	margin: 0px 0px 30px 0px;
@@ -2403,4 +2408,60 @@ body.ie .ibg img {
 	.toreach__text h3 {
 		text-align: center;
 	}
+}
+.toreach__text p {
+	margin: 0px 0px 10px 0px;
+}
+
+.faq {
+	margin: 0px 0px 60px 0px;
+}
+.faq__title {
+	text-align: center;
+	font-size: 2.625rem;
+	font-weight: 700;
+	padding-bottom: 40px;
+}
+@media (max-width: 550px) {
+	.faq__title {
+		font-size: 1.8rem;
+	}
+}
+.faq__subtitle {
+	text-align: center;
+	margin: 0px 0px 30px 0px;
+	font-size: 18px;
+	line-height: 1.2;
+}
+.faq__row {
+	padding: 0px 150px;
+}
+@media (max-width: 991.98px) {
+	.faq__row {
+		padding: 0px 50px;
+	}
+}
+@media (max-width: 550px) {
+	.faq__row {
+		padding: unset;
+	}
+}
+.faq__item {
+	background-color: #eee;
+	padding: 10px 20px;
+	border-bottom: 1px solid lightgray;
+	width: 100%;
+	margin: 0px 0px 20px 0px;
+}
+.faq__summary {
+	font-size: 18px;
+	line-height: 1.2;
+}
+.faq__text {
+	font-size: 1rem;
+	margin: 20px 20px 10px 0px;
+	line-height: 1.2;
+}
+.faq__text p {
+	margin: 0px 0px 10px 0px;
 }
