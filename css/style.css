@@ -1877,6 +1877,9 @@ body.ie .ibg img {
 	-webkit-box-direction: normal;
 	    -ms-flex-direction: column;
 	        flex-direction: column;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
 	gap: 20px;
 }
 .price__item p {
@@ -1889,19 +1892,20 @@ body.ie .ibg img {
 }
 .price__btn {
 	line-height: 1;
-	padding: 14px;
+	padding: 14px 25px;
 }
 .price__btn a:visited {
 	color: unset;
 }
-@media (max-width: 625px) {
+@media (max-width: 700px) {
 	.price__btn {
 		font-size: 14px;
 	}
 }
-@media (max-width: 550px) {
+@media (max-width: 600px) {
 	.price__btn {
 		font-size: 12px;
+		padding: 14px;
 	}
 }
 @media (max-width: 500px) {
