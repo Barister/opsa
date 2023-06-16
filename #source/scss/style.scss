@@ -567,21 +567,19 @@ body {
 		}
 	}
 
-	&__months ,
-	&__workdays ,
-	&__weekends {
+	&__item {
 		border: 1px solid lightgray;
-		//border-radius: 5px;
 		font-size: 18px;
 		line-height: 1.2;
 		padding: 40px 10px;
 		width: 250px;
-		height: 300px;
+		min-height: 100%;
 		background-color: #eee;
 		text-align: center;
 		display: flex;
-		justify-content: space-around;
+		justify-content: space-between;
 		flex-direction: column;
+		gap: 20px;
 		& p {
 			margin-bottom: 10px;
 		}
@@ -590,14 +588,42 @@ body {
 		}
 	}
 
-
-	&__months {
+	&__btn {
+		line-height: 1;		
+		padding: 14px;
+		& a:visited {
+			color: unset;
+		}
+		@media (max-width: 625px) {
+			font-size: 14px;
+		}
+		@media (max-width: 550px) {
+			font-size: 12px;
+		}
+		@media (max-width: 500px) {
+			display: none;
+		}
 	}
 
-	&__workdays {
+	&__btnMobi {
+		display: none;
+		@media (max-width: 500px) {
+			display: inline-block;
+			margin: 20px 0px 0px 0px;
+			line-height: 1;		
+		
+		& a:visited {
+			color: unset;
+		}
+		}
 	}
 
-	&__weekends {
+
+	&__months, &__workdays,	&__weekends {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		height: 100%;
 	}
 
 	&__details {

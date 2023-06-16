@@ -1858,32 +1858,81 @@ body.ie .ibg img {
 		gap: 20px;
 	}
 }
-.price__months, .price__workdays, .price__weekends {
+.price__item {
 	border: 1px solid lightgray;
 	font-size: 18px;
 	line-height: 1.2;
 	padding: 40px 10px;
 	width: 250px;
-	height: 300px;
+	min-height: 100%;
 	background-color: #eee;
 	text-align: center;
 	display: -webkit-box;
 	display: -ms-flexbox;
 	display: flex;
-	-ms-flex-pack: distribute;
-	    justify-content: space-around;
+	-webkit-box-pack: justify;
+	    -ms-flex-pack: justify;
+	        justify-content: space-between;
 	-webkit-box-orient: vertical;
 	-webkit-box-direction: normal;
 	    -ms-flex-direction: column;
 	        flex-direction: column;
+	gap: 20px;
 }
-.price__months p, .price__workdays p, .price__weekends p {
+.price__item p {
 	margin-bottom: 10px;
 }
 @media (max-width: 410px) {
-	.price__months, .price__workdays, .price__weekends {
+	.price__item {
 		font-size: 15px;
 	}
+}
+.price__btn {
+	line-height: 1;
+	padding: 14px;
+}
+.price__btn a:visited {
+	color: unset;
+}
+@media (max-width: 625px) {
+	.price__btn {
+		font-size: 14px;
+	}
+}
+@media (max-width: 550px) {
+	.price__btn {
+		font-size: 12px;
+	}
+}
+@media (max-width: 500px) {
+	.price__btn {
+		display: none;
+	}
+}
+.price__btnMobi {
+	display: none;
+}
+@media (max-width: 500px) {
+	.price__btnMobi {
+		display: inline-block;
+		margin: 20px 0px 0px 0px;
+		line-height: 1;
+	}
+	.price__btnMobi a:visited {
+		color: unset;
+	}
+}
+.price__months, .price__workdays, .price__weekends {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	    -ms-flex-direction: column;
+	        flex-direction: column;
+	-ms-flex-pack: distribute;
+	    justify-content: space-around;
+	height: 100%;
 }
 .price__details {
 	text-align: center;
