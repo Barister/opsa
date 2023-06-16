@@ -2163,6 +2163,104 @@ body.ie .ibg img {
 	grid-row: 1/3;
 }
 
+.owner {
+	margin: 0px 0px 60px 0px;
+}
+.owner__title {
+	text-align: center;
+	font-size: 2.625rem;
+	font-weight: 700;
+	padding-bottom: 40px;
+}
+@media (max-width: 550px) {
+	.owner__title {
+		font-size: 1.8rem;
+	}
+}
+.owner__subtitle {
+	text-align: center;
+	margin: 0px 0px 30px 0px;
+	font-size: 18px;
+	line-height: 1.2;
+}
+.owner__row {
+	margin: 20px 0px 0px 0px;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-pack: distribute;
+	    justify-content: space-around;
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center;
+	gap: 50px;
+}
+@media (max-width: 650px) {
+	.owner__row {
+		display: block;
+	}
+}
+.owner__image {
+	-webkit-box-flex: 1;
+	    -ms-flex: 1 1 40%;
+	        flex: 1 1 40%;
+}
+.owner__image img {
+	height: 100%;
+	width: 100%;
+	-o-object-fit: cover;
+	   object-fit: cover;
+	padding: 20px;
+}
+@media (max-width: 1182px) {
+	.owner__image img {
+		padding: unset;
+	}
+}
+@media (max-width: 650px) {
+	.owner__image img {
+		padding: 0px 50px 30px 50px;
+	}
+}
+@media (max-width: 425px) {
+	.owner__image img {
+		padding: 0px 0px 30px 0px;
+	}
+}
+.owner__mobImage {
+	display: none;
+}
+@media (max-width: 991.98px) {
+	.owner__mobImage {
+		display: block;
+		margin: 30px 0px 30px 0px;
+	}
+}
+@media (max-width: 650px) {
+	.owner__mobImage {
+		display: none;
+	}
+}
+.owner__text {
+	-webkit-box-flex: 1;
+	    -ms-flex: 1 1 60%;
+	        flex: 1 1 60%;
+	font-size: 1rem;
+	line-height: 1.2;
+	text-align: justify;
+}
+.owner__text p {
+	margin: 0px 0px 20px 0px;
+}
+.owner__text_left-bold {
+	border-left: 5px solid #eee;
+	font-size: 18px;
+	font-weight: 600;
+	line-height: 1.4;
+	margin: 10px 0px;
+	padding: 0px 20px;
+}
+
 .enquiry {
 	margin-bottom: 60px;
 	background: url("../img/enquiry-bg.jpg") no-repeat top left;
@@ -2261,6 +2359,9 @@ body.ie .ibg img {
 	background-color: transparent;
 	margin: 0 0 50px;
 	padding: 0px 0px 0px 70px;
+}
+.enquiry__contacts a {
+	color: #000;
 }
 @media (max-width: 420px) {
 	.enquiry__contacts {
