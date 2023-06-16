@@ -4,8 +4,6 @@
 
 const headerLink = document.querySelectorAll('.header__link');
 
-console.log(headerLink);
-
 if ($('.header__burger').css('display') === 'block') {
    $(headerLink).each(function () {
       $(this).on('click', function (event) {
