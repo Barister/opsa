@@ -13,6 +13,7 @@
 	<link rel="apple-touch-icon" href="img/favicon 180.png" />
 	<meta name="msapplication-TileImage" content="img/favicon.png">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://vk.com/js/api/openapi.js?169" type="text/javascript"></script>
 </head>
 
 <body>
@@ -22,7 +23,7 @@
 		<!-- @import "header.kit" -->
 
 
-		<section class="mainblock">
+		<section class="mainblock" id="top-header">
 			<div class="mainblock__content">
 				<div class="container">
 					<div class="mainblock__logo">
@@ -989,14 +990,37 @@
 					</div>
 				</div>
 			</section>
+			<section class="vk">
+				<div class="container">
+					<div class="vk__title">
+						<h2>Мы в VK</h2>
+					</div>
+					<div class="vk__subtitle">
+						<p>Следите за нашим блогом</p>
+					</div>
 
+					<!-- VK Widget -->
+					<div id="vk_groups" class="vk__screen"></div>
+					<script type="text/javascript">
+						function VK_Widget_Init() {
+							document.getElementById('vk_groups').innerHTML = '<div id="vk_groups" class="vk__screen"></div>';
+							VK.Widgets.Group("vk_groups", { mode: 4, wide: 0, no_cover: 1, width: "auto", height: "500" }, 10791407);
+						};
+						window.addEventListener('load', VK_Widget_Init, false);
+						window.addEventListener('resize', VK_Widget_Init, false);
+					</script>
+				</div>
+			</section>
+			<!-- @import "footer.kit" -->
+
+			<a href="#top-header">
+				<div class="scroll-up">
+					<img src="img/icons/double-arrow.png" class="double_arrow" alt="">
+				</div>
+			</a>
 		</div>
-		<!-- @import "footer.kit" -->
 
-
-	</div>
-
-	<!-- @import "js.kit" -->
+		<!-- @import "js.kit" -->
 </body>
 
 </html>

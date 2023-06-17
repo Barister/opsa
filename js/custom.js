@@ -14,3 +14,21 @@ if ($('.header__burger').css('display') === 'block') {
       });
    });
 }
+
+
+// scroll up event
+
+window.addEventListener('scroll', function () {
+   let scrollPosition = window.scrollY || document.documentElement.scrollTop;
+   let secondScreenOffset = window.innerHeight * 1.5;
+
+   let scrollUpButton = document.querySelector('.scroll-up');
+
+   if (scrollPosition > secondScreenOffset) {
+      scrollUpButton.style.display = 'flex';
+      scrollUpButton.style.opacity = "1";
+
+   } else {
+      scrollUpButton.style.opacity = "0";
+   }
+});
