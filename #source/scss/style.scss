@@ -333,6 +333,14 @@ body {
 			
 		}
 	}
+	
+}
+
+#about:before {
+  content: "";
+  display: block;
+  height: 115px; 
+  margin-top: -115px;
 }
 
 .img1{
@@ -636,6 +644,13 @@ body {
 	}
 }
 
+#price:before {
+	content: "";
+	display: block;
+	height: 115px; 
+  	margin-top: -115px;
+ }
+
 
 .todo {
 	margin-bottom: 60px;
@@ -687,6 +702,13 @@ body {
 		//max-height: 300px;
 	}
 }
+
+#todo:before {
+	content: "";
+	display: block;
+	height: 115px; 
+  	margin-top: -115px;
+ }
 
 .item {
 	&__image {
@@ -1182,6 +1204,13 @@ body {
 		}
 	}
 }
+
+#toreach:before {
+	content: "";
+	display: block;
+	height: 115px; 
+  	margin-top: -115px;
+ }
 
 
 .faq {
