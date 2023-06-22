@@ -170,3 +170,10 @@ textarea.input{
 .form-range-values__item {font-size: 12px;color: #888;}
 //</RANGE>====================================================================================================
 
+.form__input.err {
+	box-shadow: 0 0 15px rgba(219, 23, 23, 0.5);
+}
+
+.checkbox.err .checkbox__label::before {
+	box-shadow: 0 0 15px rgb(219, 23, 23);
+}

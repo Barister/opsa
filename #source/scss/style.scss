@@ -45,8 +45,7 @@ body {
 	overflow: hidden;
 	@include flexbox();
 	flex-direction: column;
-	&.loaded {
-	}
+	
 }
 //</ОБОЛОЧКА>===========================================================================================================
 
@@ -223,9 +222,6 @@ body {
    	animation: double-arrow 1s infinite linear;
 	}
 
-	.double-arrow{
-		
-	}
 }
 
 @keyframes double-arrow {
@@ -517,11 +513,6 @@ body {
 	}
 }
 
-
-
-.services {
-}
-
 .galleri {
 	margin-bottom: 60px;
 	&__grid {
@@ -669,12 +660,6 @@ body {
 		margin: 0px 0px 30px 0px;
 		font-size: 18px;
 		line-height: 1.2;
-	}
-
-	&__row {
-		// @media (max-width: $md3+px) {
-		// 	padding: 0 150px;
-		// }
 	}
 
 	&__list {
@@ -968,9 +953,6 @@ body {
 		}
 	}
 }
-.container {
-}
-
 
 .enquiry {
 	margin-bottom: 60px;
@@ -1011,9 +993,7 @@ body {
 		padding: 50px 50px 40px 50px;
 		box-shadow: 0px 0px 35px 0px rgba(0, 0, 0, 0.3);
     	margin: 0 0 50px;
-		& fieldset {
-			//display: block;
-		}
+			
 		& fieldset label {
 			font-size: 1rem;
 			font-weight: 500;
@@ -1024,26 +1004,31 @@ body {
 			border-bottom: 1px solid #696969;
     		border-radius: 0;
     		font-size: 1.000rem;
-    		padding: 12px 0px;
+			margin: 12px 0px 12px 0px;
+    		padding: 8px 5px;
     		font-weight: 500;
 			display: block;
 			width: 100%;
+			//line-height: 1.2;
+			
 		}
 		& fieldset label textarea {
 			border-bottom: 1px solid #696969;
     		border-radius: 0;
     		font-size: 1.000rem;
-    		padding: 12px 0px;
+    		margin: 12px 0px 0px 0px;
+    		padding: 8px 5px;
     		font-weight: 500;
 			display: block;
 			width: 100%;
+			resize: vertical;
 		}
-		& input[type="submit"] {
+		& button[type="submit"] {
 			cursor: pointer;
 			line-height: 1;
 		}
 	}
-
+	
 	&__title {
 		font-size: 2.500rem;
     	margin-bottom: 35px;
@@ -1077,7 +1062,57 @@ body {
 }
 .form {
 	background-color: #fff;
+	
 }
+
+.checkbox {
+	font-size: 1.000rem;
+   padding: 0px 0px 12px 0px;
+   font-weight: 500;
+	display: block;
+	max-width: 355px;
+	line-height: 1.2;
+	&__input {
+		display: none;
+		&:checked + .checkbox__label::after{
+			transform: scale(1);
+		}
+	}
+	
+	&__label {
+		display: inline-flex;
+		align-items: center;
+		position: relative;
+		cursor: pointer;
+	}
+	&__label::before {
+		content: "";
+		align-self: flex-start;
+		flex: 0 0 24px;
+		height: 24px;
+		background-color: #fff;
+		border-radius: 4px;
+		border: 1px solid grey;
+		margin-right: 10px;
+	}
+	&__label::after {
+		transition: all 0.5s ease 0s ;
+		content: "";
+		width: 16px;
+		height: 16px;
+		position: absolute;
+		top: 4px;
+		left: 4px;
+		background-color: #629197;
+		border-radius: 4px;
+		transform: scale(0);
+	}
+	@media (max-width: $md3+px) {
+		width: 100%;
+		max-width: unset;
+	}
+}
+
 .contacts {
 	width: 280px;
 	@media (max-width: 550px) {
@@ -1098,8 +1133,6 @@ body {
 }
 .item {
 
-	&__icon {
-	}
 
 	&__text {
 	
@@ -1140,10 +1173,6 @@ body {
 		@media (max-width: 600px) {
 			margin: 0px 0px 30px 0px;
 		}
-	}
-
-	&__row {
-		
 	}
 
 	&__item {
