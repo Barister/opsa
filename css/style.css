@@ -163,7 +163,6 @@ body.lock {
 	border-radius: 50px;
 	text-align: center;
 	-webkit-transition: 0.3s;
-	-o-transition: 0.3s;
 	transition: 0.3s;
 	font-weight: 600;
 	background-color: #2a83e8;
@@ -219,8 +218,7 @@ body.lock {
 	padding: 0 45px 0 25px;
 	white-space: nowrap;
 	text-transform: none;
-	-o-text-overflow: ellipsis;
-	   text-overflow: ellipsis;
+	text-overflow: ellipsis;
 }
 .select .select-options {
 	position: absolute;
@@ -592,15 +590,13 @@ ol.counter li:before {
 	overflow: hidden;
 	width: 100%;
 	white-space: nowrap;
-	-o-text-overflow: ellipsis;
-	   text-overflow: ellipsis;
+	text-overflow: ellipsis;
 }
 
 .es {
 	overflow: hidden;
 	white-space: nowrap;
-	-o-text-overflow: ellipsis;
-	   text-overflow: ellipsis;
+	text-overflow: ellipsis;
 }
 
 .table {
@@ -708,7 +704,6 @@ body.ie .ibg img {
 
 .graystyle {
 	-webkit-transition: all 0.8s ease 0s;
-	-o-transition: all 0.8s ease 0s;
 	transition: all 0.8s ease 0s;
 	filter: grayscale(1);
 	-webkit-filter: grayscale(1);
@@ -847,7 +842,6 @@ body.ie .ibg img {
 	-webkit-transform: scale(0);
 	transform: scale(0);
 	-webkit-transition: all 0.3s ease 0s;
-	-o-transition: all 0.3s ease 0s;
 	transition: all 0.3s ease 0s;
 	position: relative;
 	max-width: 1230px;
@@ -862,7 +856,7 @@ body.ie .ibg img {
 	top: 0px;
 	right: 0px;
 	cursor: pointer;
-	background: url("../img/icons/close.png") 0 0 no-repeat;
+	background: url("../img/icons/close.svg") 0 0 no-repeat;
 }
 
 .popup-video .popup-close {
@@ -965,7 +959,6 @@ body.ie .ibg img {
 		height: 2px;
 		left: 0;
 		-webkit-transition: all 0.3s ease 0s;
-		-o-transition: all 0.3s ease 0s;
 		transition: all 0.3s ease 0s;
 	}
 	.header__burger:before {
@@ -1008,7 +1001,6 @@ body.ie .ibg img {
 		background-color: #00152a;
 		padding: 70px 0px 0px 15px;
 		-webkit-transition: all 0.3s ease 0s;
-		-o-transition: all 0.3s ease 0s;
 		transition: all 0.3s ease 0s;
 		overflow: auto;
 	}
@@ -2514,7 +2506,6 @@ body.ie .ibg img {
 }
 .checkbox__label::after {
 	-webkit-transition: all 0.5s ease 0s;
-	-o-transition: all 0.5s ease 0s;
 	transition: all 0.5s ease 0s;
 	content: "";
 	width: 16px;
@@ -2791,7 +2782,6 @@ body.ie .ibg img {
 	        justify-content: center;
 	opacity: 0;
 	-webkit-transition: opacity 0.3s ease;
-	-o-transition: opacity 0.3s ease;
 	transition: opacity 0.3s ease;
 	-webkit-transform: rotate(45deg);
 	    -ms-transform: rotate(45deg);

@@ -1,50 +1,74 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name = sanitizeInput($_POST["name"]);
-    $phone = sanitizeInput($_POST["phone"]);
-    $email = sanitizeInput($_POST["email"]);
-    $message = sanitizeInput($_POST["text"]);
 
-    if (validateInputs($name, $phone, $email, $message)) {
-        $to = "info@opsa-karelia.ru"; // Замените на вашу почту
-        $subject = "Новое сообщение от формы обратной связи";
-        $body = "Имя: " . $name . "\n"
-            . "Телефон: " . $phone . "\n"
-            . "E-mail: " . $email . "\n"
-            . "Сообщение: " . $message;
+//Import PHPMailer classes into the global namespace
+//These must be at the top of your script, not inside a function
+use PHPMailer\PHPMailer\PHPMailer;
+//use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
 
-        $headers = "From: " . $email . "\r\n"
-            . "Reply-To: " . $email . "\r\n"
-            . "Content-Type: text/plain; charset=utf-8\r\n";
+//Load Composer's autoloader
 
-        if (mail($to, $subject, $body, $headers)) {
-            echo "Сообщение успешно отправлено.";
-        } else {
-            echo "Ошибка при отправке сообщения.";
-        }
-    } else {
-        echo "Некорректные данные формы.";
+require '../PHPMailer/src/Exception.php';
+require '../PHPMailer/src/PHPMailer.php';
+//require '../PHPMailer/src/SMTP.php';
+
+//Create an instance; passing `true` enables exceptions
+$mail = new PHPMailer(true);
+$mail->CharSet = 'UTF-8';
+$mail->setLanguage('ru', 'PHPMailer/language');
+$mail->isHTML(true);                                  //Set email format to HTML
+
+try {
+    // //Server settings
+    // $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
+    // $mail->isSMTP();                                            //Send using SMTP
+    // $mail->Host       = 'smtp.example.com';                     //Set the SMTP server to send through
+    // $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
+    // $mail->Username   = 'user@example.com';                     //SMTP username
+    // $mail->Password   = 'secret';                               //SMTP password
+    // $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            //Enable implicit TLS encryption
+    // $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
+
+    //Recipients
+    $mail->setFrom('info@opsa-karelia.ru', 'Гуру Администратор');
+    $mail->addAddress('info@opsa-karelia.ru');               //Name is optional
+    //$mail->addReplyTo($_POST['email'], $_POST['name']);
+    $mail->Subject = 'Опса.Карелия: запрос через форму обратной связи';
+    
+
+    //Content
+
+    $body = '<h1>Встречайте запрос с сайта</h1>';
+
+    if(trim(!empty($_POST['name']))){
+        $body.='<p><strong>Имя:</strong> '.$_POST['name'].'</p>';
     }
+
+    if(trim(!empty($_POST['name']))){
+        $body.='<p><strong>Телефон:</strong> '.$_POST['phone'].'</p>';
+    }
+
+    if(trim(!empty($_POST['email']))){
+        $body.='<p><strong>Email:</strong> '.$_POST['email'].'</p>';
+    }
+
+    if(trim(!empty($_POST['text']))){
+        $body.='<p><strong>Сообщение:</strong> '.$_POST['text'].'</p>';
+    }
+    
+    $mail->Body = $body;
+
+    //Sending
+
+    $mail->send();
+    $message = 'Сообщение отправлено';
+} catch (Exception $e) {
+    $message = "Ошибка, сообщение не может быть отправлено. Сведения об ошибке: {$mail->ErrorInfo}";
 }
 
-function sanitizeInput($input)
-{
-    $input = trim($input);
-    $input = stripslashes($input);
-    $input = htmlspecialchars($input);
-    return $input;
-}
+$response = ['message' => $message];
 
-function validateInputs($name, $phone, $email, $message)
-{
-    if (empty($name) || empty($phone) || empty($message)) {
-        return false; // Если обязательные поля не заполнены, возвращаем false
-    }
+header('Content-type: application/json');
+echo json_encode($response);
 
-    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        return false; // Если email некорректный, возвращаем false
-    }
-
-    return true; // Если все проверки пройдены, возвращаем true
-}
 ?>

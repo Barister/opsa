@@ -509,25 +509,30 @@ function digi(str) {
 }
 
 //VALIDATE FORMS
-$('form button[type=submit]').click(function () {
+$('form button[type=submit]').click(function (e) {
 	var er = 0;
 	var form = $(this).parents('form');
-	var ms = form.data('ms');
+
+	e.preventDefault();
+	//console.log('form:', form);
+
+	// var ms = 1000;
+	//console.log('ms:', ms);
 	$.each(form.find('.req'), function (index, val) {
 		er += formValidate($(this));
 	});
-	if (er == 0) {
+	if (er === 0) {
 		removeFormError(form);
 
 
-		var messagehtml = '';
-		if (form.hasClass('editprofile')) {
-			var messagehtml = '';
-		}
+		// var messagehtml = '';
+		// if (form.hasClass('editprofile')) {
+		// 	var messagehtml = '';
+		// }
 		formLoad();
 
 
-		//ОПТРАВКА ФОРМЫ
+		//ОТПРАВКА ФОРМЫ
 
 		function showResponse(html) {
 			if (!form.hasClass('nomessage')) {
@@ -537,31 +542,62 @@ $('form button[type=submit]').click(function () {
 				clearForm(form);
 			}
 		}
-		var options = {
-			success: showResponse
+
+		const enquiryForm = document.getElementById('form');
+
+		let formData = new FormData(enquiryForm);
+		//console.log('formData', formData);
+
+		let options = {
+			success: showResponse,
+			method: 'POST',
+			body: formData
 		};
-		form.ajaxForm(options);
+
+		//form.ajaxForm(options);
+
+		async function formSend(e) {
+			e.preventDefault();
 
 
-		setTimeout(function () {
-			if (!form.hasClass('nomessage')) {
-				//showMessage(messagehtml);
-				showMessageByClass(ms);
+
+			let response = await fetch('mail/send.php', options);
+			// let text = await response.text(); // прочитать тело ответа как текст
+
+			// alert(text);
+
+			if (response.ok) {
+				let result = await response.json();
+				alert(result.message);
+				enquiryForm.reset();
+			} else {
+				alert('Ошибка при отправке формы в процессе fetch');
 			}
-			if (!form.hasClass('noclear')) {
-				clearForm(form);
-			}
-		}, 0);
-
-		return false;
-
-		if (ms != null && ms != '') {
-			showMessageByClass(ms);
-			return false;
 		}
+
+		formSend(e);
+
+		// setTimeout(function () {
+		// 	if (!form.hasClass('nomessage')) {
+		// 		showMessage(messagehtml);
+		// 		showMessageByClass(ms);
+		// 	}
+		// 	if (!form.hasClass('noclear')) {
+		// 		clearForm(form);
+		// 	}
+		// }, 0);
+
+		// return false;
+
+
+		// 	if (ms != null && ms != '') {
+		// 	 	showMessageByClass(ms);
+		// 	 	return false;
+		// 	}
 	} else {
 		return false;
 	}
+
 });
 function formValidate(input) {
 	var er = 0;
@@ -586,7 +622,7 @@ function formValidate(input) {
 		}
 	}
 	if (input.attr('type') == 'checkbox') {
-		console.log('checkbox класс проверка');
+
 		if (input.prop('checked') == true) {
 			input.removeClass('err').parent().removeClass('err');
 		} else {
@@ -615,10 +651,10 @@ function formLoad() {
 	$('.popup-message .popup-body').append('<div class="popup-loading"><div class="popup-loading__title">Идет загрузка...</div><div class="popup-loading__icon"></div></div>');
 	$('.popup-message').addClass('active').fadeIn(300);
 }
-function showMessageByClass(ms) {
-	$('.popup').hide();
-	popupOpen('message.' + ms, '');
-}
+// function showMessageByClass(ms) {
+// 	$('.popup').hide();
+// 	popupOpen('message.' + ms, '');
+// }
 function showMessage(html) {
 	$('.popup-loading').remove();
 	$('.popup-message-body').show().html(html);
@@ -710,7 +746,7 @@ function searchselectreset() {
 }
 
 
-// При изменении состояния любого элемента input checkbox
+// При изменении состояния любого элемента input checkbox добавляем класс err к элементу
 $('input[type="checkbox"]').on('change', function () {
 	if ($(this).prop('checked')) {
 		$(this).removeClass('err').parent().removeClass('err');
