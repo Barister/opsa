@@ -584,13 +584,21 @@ $('form button[type=submit]').click(function (e) {
 
 			// alert(text);
 
+			let displayResult = enquiryForm.querySelector('.form__result');
+
 			if (response.ok) {
 				let result = await response.json();
-				alert(result.message);
+				//alert(result.message);
+				displayResult.innerHTML = '<p>Спасибо за Ваше сообщение.</p><p>Оно успешно отправлено.</p>';
 				enquiryForm.reset();
+				displayResult.style.borderColor = '#46b450';
 			} else {
-				alert('Ошибка при отправке формы в процессе fetch');
+				//alert('Ошибка при отправке формы в процессе fetch');
+				displayResult.innerHTML = '<p>Ошибка при отправке формы.</p><p>Попробуйте еще раз.</p>';
 			}
+			displayResult.style.display = 'block';
+			displayResult.style.opacity = '1';
+			displayResult.style.transition = 'all 1s;'
 		}
 
 		formSend(e);
@@ -605,7 +613,7 @@ $('form button[type=submit]').click(function (e) {
 		// 	}
 		// }, 0);
 
-		// return false;
+		return false;
 
 
 		// 	if (ms != null && ms != '') {
@@ -620,6 +628,9 @@ $('form button[type=submit]').click(function (e) {
 function formValidate(input) {
 	var er = 0;
 	var form = input.parents('form');
+	const enquiryForm = document.getElementById('form');
+	let displayResult = enquiryForm.querySelector('.form__result');
+	//валидация email
 	if (input.attr('name') == 'email' || input.hasClass('email')) {
 		if (input.val() != input.attr('data-value')) {
 			var em = input.val().replace(" ", "");
@@ -631,7 +642,23 @@ function formValidate(input) {
 		} else {
 			removeError(input);
 		}
-	} else {
+	}
+	// Валидация для поля phone
+	else if (input.attr('name') == 'phone' || input.hasClass('phone')) {
+
+		var phonePattern = /^(\+7|7|8|9)\d{9,}$/; // Регулярное выражение для телефонов в России
+
+		if (!phonePattern.test(input.val()) || input.val() == input.attr('data-value')) {
+			er++;
+			addError(input);
+
+			// Введён некорректный телефонный номер
+		} else {
+			removeError(input);
+		}
+	}
+
+	else {
 		if (input.val() == '' || input.val() == input.attr('data-value')) {
 			er++;
 			addError(input);
@@ -649,9 +676,12 @@ function formValidate(input) {
 		}
 	}
 	if (input.hasClass('name')) {
-		if (!(/^[А-Яа-яa-zA-Z-]+( [А-Яа-яa-zA-Z-]+)$/.test(input.val()))) {
+		if (!(/^[А-Яа-яa-zA-Z-]+$/.test(input.val()))) {
 			er++;
 			addError(input);
+			//
+		} else {
+			removeError(input);
 		}
 	}
 	if (input.hasClass('pass-2')) {
@@ -661,6 +691,14 @@ function formValidate(input) {
 			removeError(input);
 		}
 	}
+	if (er > 0 && er < 3) {
+		displayResult.innerHTML = '<p>Одно или несколько полей<br>содержат ошибочные данные. </p><p>Пожалуйста, проверьте их и <br>попробуйте ещё раз.</p>'
+		displayResult.style.border = '2px solid #ffb900';
+		displayResult.style.opacity = '1';
+		displayResult.style.display = 'block';
+
+	}
+	console.log('er: ', er);
 	return er;
 }
 function formLoad() {

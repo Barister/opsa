@@ -1,0 +1,16 @@
+color: #dc3232;
+font-size: 1em;
+font-weight: normal;
+display: block;
+margin-bottom: 15px;
+
+
+
+border-color: #ffb900;
+margin: 2em 0.5em 1em;
+padding: 0.2em 1em;
+border: 2px solid #00a0d2;
+font-size: 1.000rem;
+font-weight: 400;
+line-height: 1.66;
+color: #393939;

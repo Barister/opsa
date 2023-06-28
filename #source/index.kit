@@ -818,10 +818,10 @@
 							<h2 class="enquiry__title">Сделать запрос</h2>
 							<fieldset>
 								<label for="formName">Ваше имя*
-									<input id="formName" class="form__input req" type="text" name="name" required>
+									<input id="formName" class="form__input req name" type="text" name="name" required>
 								</label>
 								<label for="formPhone">Телефон*
-									<input id="formPhone" class="form__input req" type="tel" name="phone" minlength="9"
+									<input id="formPhone" class="form__input req" type="tel" name="phone" minlength="10"
 										placeholder="" required>
 								</label>
 								<label for="formEmail">E-mail
@@ -842,6 +842,7 @@
 									</span></label>
 							</div>
 							<button class="form__button btn__main btn" type="submit" value="Отправить">Отправить</button>
+							<div class="form__result"></div>
 						</form>
 						<div class="enquiry__contacts contacts">
 							<h2 class="contacts__title">Наши контакты</h2>

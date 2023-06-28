@@ -2464,6 +2464,18 @@ body.ie .ibg img {
 .form {
 	background-color: #fff;
 }
+.form__result {
+	display: none;
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.66;
+	margin: 2em 0.5em 1em;
+	padding: 0.2em 1em;
+	border: 2px solid #46b450;
+	opacity: 0;
+	-webkit-transition: all 1s;
+	transition: all 1s;
+}
 
 .checkbox {
 	font-size: 1rem;
