@@ -531,13 +531,18 @@ $('form button[type=submit]').click(function (e) {
 	var er = 0;
 	var form = $(this).parents('form');
 
-	e.preventDefault();
+	//e.preventDefault();
 	//console.log('form:', form);
 
 	// var ms = 1000;
 	//console.log('ms:', ms);
 	$.each(form.find('.req'), function (index, val) {
 		er += formValidate($(this));
+	});
+	$.each(form.find('.email'), function (index, val) {
+		if ($(this).val() !== '') {
+			er += formValidate($(this));
+		}
 	});
 	if (er === 0) {
 		removeFormError(form);
@@ -575,7 +580,7 @@ $('form button[type=submit]').click(function (e) {
 		//form.ajaxForm(options);
 
 		async function formSend(e) {
-			e.preventDefault();
+			//e.preventDefault();
 
 
 
@@ -589,12 +594,12 @@ $('form button[type=submit]').click(function (e) {
 			if (response.ok) {
 				let result = await response.json();
 				//alert(result.message);
-				displayResult.innerHTML = '<p>Спасибо за Ваше сообщение.</p><p>Оно успешно отправлено.</p>';
+				displayResult.innerHTML = '<p>Спасибо за Ваше сообщение. Оно успешно отправлено.</p>';
 				enquiryForm.reset();
 				displayResult.style.borderColor = '#46b450';
 			} else {
 				//alert('Ошибка при отправке формы в процессе fetch');
-				displayResult.innerHTML = '<p>Ошибка при отправке формы.</p><p>Попробуйте еще раз.</p>';
+				displayResult.innerHTML = '<p>Ошибка при отправке формы. Попробуйте еще раз.</p>';
 			}
 			displayResult.style.display = 'block';
 			displayResult.style.opacity = '1';
@@ -631,14 +636,13 @@ function formValidate(input) {
 	const enquiryForm = document.getElementById('form');
 	let displayResult = enquiryForm.querySelector('.form__result');
 	//валидация email
-	if (input.attr('name') == 'email' || input.hasClass('email')) {
-		if (input.val() != input.attr('data-value')) {
-			var em = input.val().replace(" ", "");
-			input.val(em);
-		}
-		if (!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/.test(input.val())) || input.val() == input.attr('data-value')) {
+	if (input.attr('name') == 'name' || input.hasClass('email')) {
+		var emailPattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/;
+		if (!emailPattern.test(input.val())) {
 			er++;
 			addError(input);
+			console.log('Проверьте email');
+			input.addClass('err').parent().addClass('err');
 		} else {
 			removeError(input);
 		}
@@ -676,7 +680,8 @@ function formValidate(input) {
 		}
 	}
 	if (input.hasClass('name')) {
-		if (!(/^[А-Яа-яa-zA-Z-]+$/.test(input.val()))) {
+		if (!(/^[А-Яа-яa-zA-Z\s-]+(?:\s[А-Яа-яa-zA-Z\s-]+){0,2}$/
+			.test(input.val()))) {
 			er++;
 			addError(input);
 			//
@@ -692,13 +697,13 @@ function formValidate(input) {
 		}
 	}
 	if (er > 0 && er < 3) {
-		displayResult.innerHTML = '<p>Одно или несколько полей<br>содержат ошибочные данные. </p><p>Пожалуйста, проверьте их и <br>попробуйте ещё раз.</p>'
+		displayResult.innerHTML = '<p>Одно или несколько полей содержат ошибочные данные. Пожалуйста, проверьте их и попробуйте ещё раз.</p>'
 		displayResult.style.border = '2px solid #ffb900';
 		displayResult.style.opacity = '1';
 		displayResult.style.display = 'block';
 
 	}
-	console.log('er: ', er);
+	//console.log('er: ', er);
 	return er;
 }
 function formLoad() {
@@ -726,10 +731,10 @@ function clearForm(form) {
 }
 function addError(input) {
 	input.addClass('err');
-	//input.parent().addClass('err');
+	input.parent().addClass('err');
 	input.parent().find('.form__error').remove();
 	if (input.hasClass('email')) {
-		var error = '';
+		var error = 'Проверьте email на ошибки';
 		if (input.val() == '' || input.val() == input.attr('data-value')) {
 			error = input.data('error');
 		} else {

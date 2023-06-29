@@ -2475,6 +2475,12 @@ body.ie .ibg img {
 	opacity: 0;
 	-webkit-transition: all 1s;
 	transition: all 1s;
+	max-width: 355px;
+}
+@media (max-width: 550px) {
+	.form {
+		padding: 30px 15px 20px 15px;
+	}
 }
 
 .checkbox {

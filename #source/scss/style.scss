@@ -1072,6 +1072,10 @@ body {
 		border: 2px solid #46b450;
 		opacity: 0;
 		transition: all 1s;
+		max-width: 355px;
+	}
+	@media (max-width: 550px) {
+		padding: 30px 15px 20px 15px;
 	}
 }
 

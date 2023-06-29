@@ -1,0 +1,37 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://opsa-karelia.ru/sitemap.xml
+
+# Запрет индексации определенных разделов или файлов
+Disallow: 
+Disallow: 
+
+# Исключение временных страниц
+Disallow: /tmp/
+
+# Запрет на индексацию и сканирование поисковыми системами
+User-agent: Googlebot
+Disallow: 
+Disallow: 
+
+User-agent: Bingbot
+Disallow: 
+Disallow: 
+
+User-agent: Yandex
+Disallow: 
+Disallow: 
+
+# Задержка сканирования роботов
+Crawl-delay: 10
+
+# Ограничение доступа к каталогам
+User-agent: *
+Disallow: /cgi-bin/
+Disallow: /tmp/
+Disallow: /logs/
+
+# Игнорирование параметров URL
+User-agent: *
+Disallow: /*?
