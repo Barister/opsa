@@ -636,8 +636,8 @@ function formValidate(input) {
 	const enquiryForm = document.getElementById('form');
 	let displayResult = enquiryForm.querySelector('.form__result');
 	//валидация email
-	if (input.attr('name') == 'name' || input.hasClass('email')) {
-		var emailPattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,8})+$/;
+	if (input.attr('name') == 'email' || input.hasClass('email')) {
+		var emailPattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
 		if (!emailPattern.test(input.val())) {
 			er++;
 			addError(input);

@@ -32,6 +32,8 @@ try {
     //Recipients
     $mail->setFrom('info@opsa-karelia.ru', 'Гуру Администратор');
     $mail->addAddress('info@opsa-karelia.ru');               //Name is optional
+    $mail->addAddress('cottages.karelia@gmail.com');               //Name is optional
+    $mail->addAddress('opeskin@mail.ru');               //Name is optional
     //$mail->addReplyTo($_POST['email'], $_POST['name']);
     $mail->Subject = 'Опса.Карелия: запрос через форму обратной связи';
     
@@ -65,6 +67,10 @@ try {
 } catch (Exception $e) {
     $message = "Ошибка, сообщение не может быть отправлено. Сведения об ошибке: {$mail->ErrorInfo}";
 }
+
+// Saving the data to a file
+$fileData = date('Y-m-d H:i:s') . ' - ' . $_POST['name'] . ' - ' . $_POST['email'] . ' - ' . $_POST['phone'] . ' - ' . $_POST['text'] ."\n";
+file_put_contents('../logs/form_data.txt', $fileData, FILE_APPEND);
 
 $response = ['message' => $message];
 

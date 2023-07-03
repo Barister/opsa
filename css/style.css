@@ -1916,8 +1916,8 @@ body.ie .ibg img {
 	line-height: 1;
 	padding: 14px 25px;
 }
-.price__btn a:visited {
-	color: unset;
+.price__btn a, .price__btn a:visited {
+	color: #fff;
 }
 @media (max-width: 700px) {
 	.price__btn {

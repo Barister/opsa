@@ -1,0 +1,16 @@
+<Directory "/logs">
+    Order deny,allow
+    Deny from all
+</Directory>
+
+# Разрешение доступа к файлу form_data.txt для PHP
+<Files "form_data.txt">
+    <IfModule mod_authz_core.c>
+        Require local
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order deny,allow
+        Deny from all
+        Allow from localhost
+    </IfModule>
+</Files>
