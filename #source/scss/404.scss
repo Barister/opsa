@@ -1,0 +1,23 @@
+
+//МОДИФИКАТОРЫ ДЛЯ СТРАНИЦЫ 404
+.page-404 {
+	height: 100%;
+	@media (max-height: 450px) {
+		overflow: auto;
+		height: unset;
+	}
+}
+
+.error-404 {
+	font-size: 9rem;
+	@media (max-height: 450px) {
+		font-size: 6rem;
+	}
+}
+
+.image-404 {
+	@media (max-height: 450px) {
+		overflow: auto;
+		height: 114%;
+	}
+}

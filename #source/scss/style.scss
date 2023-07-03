@@ -81,7 +81,7 @@ body {
 //@import "baguetteBox.scss";
 //@import "pagging.scss";
 //@import "icons.scss";
-@import "popup.scss";
+//@import "popup.scss";
 @import "header.scss";
 @import "footer.scss";
 @import "home.scss";
@@ -591,7 +591,7 @@ body {
 	&__btn {
 		line-height: 1;		
 		padding: 14px 25px;
-		& a, & a:visited {
+		& a:link, & a:visited {
 			color: #fff;
 		}
 		@media (max-width: 700px) {
@@ -614,8 +614,8 @@ body {
 			margin: 20px 0px 0px 0px;
 			line-height: 1;		
 		
-		& a:visited {
-			color: unset;
+		& a:link, & a:visited {
+			color: #ffffff;
 		}
 		}
 	}
@@ -1374,3 +1374,4 @@ html {
 //====================================================================================================
 
 //</ОСНОВНОЙ БЛОК>====================================================================================================
+

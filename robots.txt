@@ -1,5 +1,4 @@
 User-agent: *
-Disallow:
 
 Sitemap: https://opsa-karelia.ru/sitemap.xml
 
@@ -33,3 +32,6 @@ Disallow: /mail/
 
 # Игнорирование параметров URL
 Disallow: /*?
+
+# Игнорирование 404 страницы
+Disallow: /404.html

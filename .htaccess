@@ -30,7 +30,7 @@ RewriteRule ^(.*)$ https://opsa-karelia.ru/$1 [L,R=301]
 # Handle requests for non-existent files or directories
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /index.html [L]
+
 
 # 404 error and redirection
 ErrorDocument 404 /404.html
